@@ -1,7 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "my-booking-calendar",
-  "workers_dev": false,
+  // Keep this enabled to use the free <worker>.<account>.workers.dev address.
+  "workers_dev": true,
   "preview_urls": false,
   "main": "dist/server/index.js",
   "keep_vars": true,
@@ -14,6 +15,7 @@
     "database_id": "YOUR_D1_DATABASE_ID",
     "migrations_dir": "drizzle"
   }],
-  "routes": [{ "pattern": "booking.example.com", "custom_domain": true }],
+  // To use a custom domain instead, set workers_dev to false and uncomment:
+  // "routes": [{ "pattern": "booking.example.com", "custom_domain": true }],
   "observability": { "enabled": false }
 }
