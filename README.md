@@ -4,6 +4,19 @@ A self-hosted booking page that checks multiple calendars, creates a video meeti
 
 One person can run it without an admin dashboard. Settings live in one ignored JSON file, credentials stay in Cloudflare secrets, and the public repository contains only safe example values.
 
+## Why this exists
+
+Most booking services charge a monthly fee. This project covers the simpler case: one person needs a booking page, calendar checks, video links and private rescheduling.
+
+The app itself can cost £0 to run within each provider’s free allowances:
+
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/platform/pricing/) hosts the app and [Cloudflare D1](https://developers.cloudflare.com/d1/platform/pricing/) stores bookings. Their free plans are ample for a small personal calendar.
+- A personal Google account can create Meet links. [Google’s free meeting limits](https://support.google.com/meet/answer/7317473?hl=en-uk) allow one-to-one calls for up to 24 hours and group calls with three or more people for up to 60 minutes, so the included 30- and 60-minute meeting types fit within the free service.
+- Microsoft Graph and Apple CalDAV check the calendars you already use. Microsoft also sends the calendar invitation.
+- Resend owner notifications are optional. The booking and calendar invitation still work without them.
+
+You still need the relevant provider accounts, and a custom domain has its own registration cost. Free-service limits and terms can change, so check them before deploying a high-traffic calendar.
+
 ## What it does
 
 - 30- and 60-minute booking links, including fixed `/30` and `/60` routes

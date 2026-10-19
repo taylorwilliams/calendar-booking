@@ -7,6 +7,8 @@ test("only permits HTTPS Apple CalDAV hosts for credentialed requests", () => {
   assert.equal(isAllowedAppleCalDavUrl("https://p123-caldav.icloud.com/456/calendars/"), true);
   assert.equal(isAllowedAppleCalDavUrl("http://caldav.icloud.com/"), false);
   assert.equal(isAllowedAppleCalDavUrl("https://caldav.icloud.com.evil.example/"), false);
+  assert.equal(isAllowedAppleCalDavUrl("https://attacker-p123-caldav.icloud.com/"), false);
+  assert.equal(isAllowedAppleCalDavUrl("https://not-an-apple-host.icloud.com/"), false);
   assert.equal(isAllowedAppleCalDavUrl("https://u:p" + "@caldav.icloud.com/"), false);
 });
 
