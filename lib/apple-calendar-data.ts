@@ -59,7 +59,7 @@ export function isAllowedAppleCalDavUrl(value: string) {
   return url.protocol === "https:"
     && !url.username
     && !url.password
-    && (hostname === "caldav.icloud.com" || hostname.endsWith("-caldav.icloud.com"));
+    && /^(?:caldav|p\d+-caldav)\.icloud\.com$/.test(hostname);
 }
 
 export function selectAppleCalendarCollections(calendars: AppleCalendarCollection[], requiredNames: readonly string[]) {
