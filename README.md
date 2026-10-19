@@ -4,6 +4,8 @@ A self-hosted booking page that checks multiple calendars, creates a video meeti
 
 One person can run it without an admin dashboard. Settings live in one ignored JSON file, credentials stay in Cloudflare secrets, and the public repository contains only safe example values.
 
+[![Personal Booking Calendar showing meeting lengths, available dates and time slots](docs/images/booking-page.jpg)](https://booking.taylorwilliams.app/)
+
 ## Why this exists
 
 Most booking services charge a monthly fee. This project covers the simpler case: one person needs a booking page, calendar checks, video links and private rescheduling.
